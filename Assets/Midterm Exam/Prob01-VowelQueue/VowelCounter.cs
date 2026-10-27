@@ -22,8 +22,27 @@ namespace MidtermExam.Prob01
         /// </remarks>
         public int AS01_CountVowels(Queue<string> alphabets)
         {
-            // TODO: เขียนคำตอบแทนคำสั่ง throw exception ด้านล่าง
-            throw new NotImplementedException();
+            if (alphabets == null || alphabets.Count == 0)
+            {
+                return 0;
+            }
+
+            int vowelCount = 0;
+            int totalItems = alphabets.Count;
+
+            for (int i = 0; i < totalItems; i++)
+            {
+                string item = alphabets.Dequeue();
+
+                if (item == "a" || item == "e" || item == "i" || item == "o" || item == "u")
+                {
+                    vowelCount++;
+                }
+
+                alphabets.Enqueue(item);
+            }
+
+            return vowelCount;
         }
     }
 }
